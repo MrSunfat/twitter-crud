@@ -9,7 +9,7 @@ import {
 import './TagContent.css';
 function TagContent({ content, deleteMethod, giveHeart, editContent }) {
     return (
-        <div className="tagContent">
+        <li className="tagContent">
             <div className="headerTagContent">
                 <button className="btn_no_default user">
                     <AiOutlineUser />
@@ -53,7 +53,7 @@ function TagContent({ content, deleteMethod, giveHeart, editContent }) {
                 </div>
                 <h2 className="date_time">{content.date_time}</h2>
             </div>
-        </div>
+        </li>
     );
 }
 

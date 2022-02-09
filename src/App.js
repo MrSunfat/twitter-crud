@@ -106,12 +106,9 @@ function App() {
     // Sua 1 API = id
     const updateContent = (id, content) => {
         axios.put(`${url}/${id}`, content).then((res) => {
-            let i = -1;
-            currentArr.forEach((ele, index) => {
-                if (ele.id === id) {
-                    i = index;
-                }
-            });
+            let i = currentArr.findIndex((ele) => ele.id === id);
+            if (i === -1) return;
+
             currentArr.splice(i, 1, { ...content });
             setContents(currentArr);
         });
@@ -123,8 +120,7 @@ function App() {
         axios
             .delete(`${url}/${id}`)
             .then((res) => {
-                currentArr = currentArr.filter((ele) => ele.id !== id);
-                setContents(currentArr);
+                setContents(currentArr.filter((ele) => ele.id !== id));
                 // console.log(currentArr);
             })
             .catch((err) => {
@@ -176,7 +172,7 @@ function App() {
     return (
         <div className="App">
             <div className="createContent">
-                <h3>Add Content: </h3>
+                <h3>{updateMode ? 'Edit Content:' : 'Add Content: '}</h3>
                 <form onSubmit={!updateMode ? onSubmit : putEditContent}>
                     <div>
                         <label htmlFor="author">Full Name</label>
@@ -231,15 +227,17 @@ function App() {
                     </div>
                 </form>
             </div>
-            {contents.map((content) => (
-                <TagContent
-                    key={content.id}
-                    content={content}
-                    deleteMethod={() => deleteContent(content.id)}
-                    giveHeart={() => giveHeart(content.id, content)}
-                    editContent={() => editContentMethod(content)}
-                />
-            ))}
+            <ul>
+                {contents.map((content) => (
+                    <TagContent
+                        key={content.id}
+                        content={content}
+                        deleteMethod={() => deleteContent(content.id)}
+                        giveHeart={() => giveHeart(content.id, content)}
+                        editContent={() => editContentMethod(content)}
+                    />
+                ))}
+            </ul>
         </div>
     );
 }
