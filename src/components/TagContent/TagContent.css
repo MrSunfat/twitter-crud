@@ -1,0 +1,83 @@
+.tagContent {
+    width: 600px;
+    border: 1px #E6ECF0 solid;
+    margin-bottom: 1px;
+    padding: 12px;
+}
+
+.btn_no_default {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background: white;
+}
+
+/* header */
+.headerTagContent {
+    display: flex;
+    height: 45px;
+    align-items: center;
+    padding: 0px 10px 12px 10px;
+    
+    /* justify-content: space-between; */
+
+}
+.headerTagContent > .user {
+    width: 45px;
+    height: 100%;
+    border: 1px #697A89 solid;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-right: 10px;
+}
+.headerTagContent > .author {
+    font-size: 20px;
+    color: #283747;
+    margin-right: 5px;
+    line-height: 0.9;
+}
+.headerTagContent > .tagname {
+    font-size: 16px;
+    color: #8796A8;
+    font-weight: 300;
+}
+
+.tagContent > span {
+    text-align: justify;
+}
+
+/* footer */
+.footerTagCont {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.footerTagCont > .edit_delete > .edit,
+.footerTagCont > .edit_delete > .delete{
+    font-size: 24px;
+    margin: 0 10px;
+    color: #92D0F0;
+}
+
+.footerTagCont > .edit_delete > .edit:hover {
+    color: #20a1e2;
+}
+
+.footerTagCont > .edit_delete > .delete:hover {
+    color: #a81528;
+}
+
+.footerTagCont > .status > .message,
+.footerTagCont > .status > .heart {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #697A89;
+}
+
+.footerTagCont > .date_time {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
